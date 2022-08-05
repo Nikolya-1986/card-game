@@ -1,8 +1,8 @@
 <h2 mat-dialog-title>
-    Congratulations!
+    {{ 'main.page.section.languages.dialog-title' | translate }}
 </h2>
 <mat-dialog-content class="mat-typography">
-    You've completed the game.
+    {{ 'main.page.section.languages.dialog-content' | translate }}
 </mat-dialog-content>
 <mat-dialog-actions align="end">
     <button 
@@ -11,6 +11,6 @@
         [mat-dialog-close]="true" 
         cdkFocusInitial
         >
-        Shuffle and Restart
+        {{ 'main.page.section.languages.dialog-actions' | translate }}
     </button>
 </mat-dialog-actions>

@@ -1,5 +1,8 @@
 {
     "main.page.section.languages.title": "Карточная игра",
     "main.page.section.languages.subtitle": 
-    "Нажмите на карту, чтобы перевернуть ее. Вы можете перевернуть максимум две карты одновременно. Совпадение удалит эти карты!"
+    "Нажмите на карту, чтобы перевернуть ее. Вы можете перевернуть максимум две карты одновременно. Совпадение удалит эти карты!",
+    "main.page.section.languages.dialog-title": "Поздравляем!",
+    "main.page.section.languages.dialog-content": "Вы прошли игру",
+    "main.page.section.languages.dialog-actions": "Перемешать и перезапустить"
 }

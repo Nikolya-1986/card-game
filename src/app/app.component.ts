@@ -14,12 +14,12 @@ export class AppComponent {
     'pDGNBK9A0sk',
     'fYDrhbVlV1E',
     'qoXgaF27zBc',
-    'b9drVB7xIOI',
-    'TQ-q5WAVHj0',
-    'pFqrYbhIAXs',
-    'eOLpJytrbsQ',
-    'LF8gK8-HGSg',
-    '6i0ZIgu7drI'
+    // 'b9drVB7xIOI',
+    // 'TQ-q5WAVHj0',
+    // 'pFqrYbhIAXs',
+    // 'eOLpJytrbsQ',
+    // 'LF8gK8-HGSg',
+    // '6i0ZIgu7drI'
   ];
 
   public cards: CardData[] = [];
