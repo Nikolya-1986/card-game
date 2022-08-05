@@ -15,30 +15,55 @@ export class AppComponent {
     'fYDrhbVlV1E',
     'qoXgaF27zBc',
     'b9drVB7xIOI',
-    'TQ-q5WAVHj0'
+    'TQ-q5WAVHj0',
+    'pFqrYbhIAXs',
+    'eOLpJytrbsQ',
+    'LF8gK8-HGSg',
+    '6i0ZIgu7drI'
   ];
 
-  cards: CardData[] = [];
+  public cards: CardData[] = [];
+  private flippedCards: CardData[] = [];
+  private matchedCount = 0;
 
-  flippedCards: CardData[] = [];
+  constructor(
+    private dialog: MatDialog
+  ) { }
 
-  matchedCount = 0;
+  public ngOnInit(): void {
+    this._setupCards();
+  }
 
-  shuffleArray(anArray: any[]): any[] {
+  public changeLanguage(code: string) {
+    localStorage.setItem('locale', code);
+    window.location.reload();
+  };
+
+  public cardClicked(index: number): void {
+    const cardInfo = this.cards[index];
+
+    if (cardInfo.state === 'default' && this.flippedCards.length < 2) {
+      cardInfo.state = 'flipped';
+      this.flippedCards.push(cardInfo);
+
+      if (this.flippedCards.length > 1) {
+        this._checkForCardMatch();
+      }
+
+    } else if (cardInfo.state === 'flipped') {
+      cardInfo.state = 'default';
+      this.flippedCards.pop();
+
+    }
+  };
+
+  private _shuffleArray(anArray: any[]): any[] {
     return anArray.map(a => [Math.random(), a])
       .sort((a, b) => a[0] - b[0])
       .map(a => a[1]);
-  }
+  };
 
-  constructor(private dialog: MatDialog) {
-
-  }
-
-  ngOnInit(): void {
-    this.setupCards();
-  }
-
-  setupCards(): void {
+  private _setupCards(): void {
     this.cards = [];
     this.cardImages.forEach((image) => {
       const cardData: CardData = {
@@ -51,28 +76,10 @@ export class AppComponent {
 
     });
 
-    this.cards = this.shuffleArray(this.cards);
-  }
+    this.cards = this._shuffleArray(this.cards);
+  };
 
-  cardClicked(index: number): void {
-    const cardInfo = this.cards[index];
-
-    if (cardInfo.state === 'default' && this.flippedCards.length < 2) {
-      cardInfo.state = 'flipped';
-      this.flippedCards.push(cardInfo);
-
-      if (this.flippedCards.length > 1) {
-        this.checkForCardMatch();
-      }
-
-    } else if (cardInfo.state === 'flipped') {
-      cardInfo.state = 'default';
-      this.flippedCards.pop();
-
-    }
-  }
-
-  checkForCardMatch(): void {
+  private _checkForCardMatch(): void {
     setTimeout(() => {
       const cardOne = this.flippedCards[0];
       const cardTwo = this.flippedCards[1];
@@ -90,16 +97,17 @@ export class AppComponent {
           });
 
           dialogRef.afterClosed().subscribe(() => {
-            this.restart();
+            this._restart();
           });
         }
       }
 
     }, 1000);
-  }
+  };
 
-  restart(): void {
+  private _restart(): void {
     this.matchedCount = 0;
-    this.setupCards();
-  }
+    this._setupCards();
+  };
+
 }

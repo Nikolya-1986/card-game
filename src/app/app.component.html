@@ -1,16 +1,45 @@
-<mat-toolbar color="primary" class="text-center">
-  Card Memory Game
+<mat-toolbar class="header">
+  <h4>
+    {{ 'main.page.section.languages.title' | translate }}
+  </h4>
 </mat-toolbar>
-<section class="p-16">
+<div class="p-16">
   <p class="text-center">
-    Tap on a card to flip it. You can only flip a maximum of two cards at a time. A match will remove those cards!
-  </p> 
+    {{ 'main.page.section.languages.subtitle' | translate }}
+  </p>
   <div class="grid p-16">
     <app-game-card 
-      *ngFor="let c of cards; let idx=index" 
-      [data]="c" 
+      *ngFor="let data of cards; let idx=index" 
+      [data]="data" 
       (cardClicked)="cardClicked(idx)"
       >
     </app-game-card>
   </div>
-</section>
+</div>
+
+<div class="button-container">
+  <div 
+    class="button button-small" 
+    (click)="changeLanguage('en')"
+    >
+    <span>
+      {{ 'main.page.section.languages.english' | translate }}
+    </span>
+  </div>
+  <div 
+    class="button button-small" 
+    (click)="changeLanguage('ru')"
+    >
+    <span>
+      {{ 'main.page.section.languages.russian' | translate }}
+    </span>
+  </div>
+  <div 
+    class="button button-small" 
+    (click)="changeLanguage('sp')"
+    >
+    <span>
+      {{ 'main.page.section.languages.spanish' | translate }}
+    </span>
+  </div>
+</div>
