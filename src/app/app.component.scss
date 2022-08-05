@@ -1,0 +1,68 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, 150px);
+  gap: 16px;
+
+  justify-content: center;
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(2, 150px);
+  }
+}
+
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 16px;
+}
+  
+.button {
+  border-radius: 4px;
+  border: 1px solid #eee;
+  background-color: #fafafa;
+  height: 40px;
+  width: 200px;
+  margin: 0 8px 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+  line-height: 24px;
+}
+  
+.card-container .button:not(:last-child) {
+  margin-right: 0;
+}
+  
+.button.button-small {
+  height: 16px;
+  width: 168px;
+}
+  
+.button-container .button:not(.highlight-button) {
+  cursor: pointer;
+}
+  
+.button-container .button:not(.highlight-button):hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 17px rgba(black, 0.35);
+}
+  
+.button-container .button:not(.highlight-button):hover .material-icons path {
+  fill: rgb(105, 103, 103);
+}
+  
+.button.highlight-button {
+  background-color: #346cba;
+  color: white;
+  font-weight: 600;
+  border: none;
+  width: auto;
+  min-width: 30%;
+  position: relative;
+}
