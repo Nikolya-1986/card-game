@@ -1,5 +1,8 @@
 {
     "main.page.section.languages.title": "Juego de memoria de cartas",
     "main.page.section.languages.subtitle": 
-    "Toca una carta para voltearla. Solo puedes voltear un máximo de dos cartas a la vez. ¡Un partido eliminará esas cartas!"
+    "Toca una carta para voltearla. Solo puedes voltear un máximo de dos cartas a la vez. ¡Un partido eliminará esas cartas!",
+    "main.page.section.languages.dialog-title": "Felicidades!",
+    "main.page.section.languages.dialog-content": "Has completado el juego.",
+    "main.page.section.languages.dialog-actions": "Mezclar y reiniciar"
 }
